@@ -1,0 +1,935 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a0933 0%, #4a154b 100%);
+    color: #fffbfb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: rgba(26, 9, 51, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+}
+
+.logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #ff758c;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #e0b3ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ff758c;
+}
+
+.content-container {
+    flex: 1;
+    margin-top: 100px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.hero-content h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    color: #ff758c;
+    text-shadow: 0px 4px 10px rgba(255, 117, 140, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: #fce4ec;
+    margin-bottom: 2rem;
+}
+
+.cta-btn {
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 117, 140, 0.6);
+}
+
+.letter-container h2, .surprise-container h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #ff758c;
+    margin-bottom: 1.5rem;
+}
+
+.letter-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.letter-box p {
+   font-family: 'Caveat', cursive;
+    font-size: 2.2rem; /* Handwriting fonts need to be larger to be readable */
+    line-height: 1.4;
+    color: #ffeef2;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: transform 0.4s;
+    border: 2px solid #ff758c;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+/* Floating Hearts Effect */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Keeps hearts behind the text and buttons */
+    pointer-events: none; /* Allows you to still click on menus and buttons */
+}
+
+.heart {
+    position: absolute;
+    bottom: -10px;
+    color: #ff4d6d;
+    font-size: 20px;
+    opacity: 0.8;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* Digital Love Jar Styles */
+.jar-instruction {
+    color: #ffb3c1;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.jar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* The Glass Jar */
+.love-jar {
+    width: 140px;
+    height: 180px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.love-jar:hover {
+    transform: scale(1.05);
+}
+
+.love-jar:active {
+    transform: scale(0.95);
+}
+
+.jar-lid {
+    width: 80px;
+    height: 20px;
+    background: #ff4d6d;
+    border-radius: 10px 10px 0 0;
+    margin: 0 auto;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+}
+
+.jar-body {
+    width: 120px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px 20px 40px 40px;
+    margin: -5px auto 0;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2), 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.jar-label {
+     font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a0933;
+    background: #ffccd5;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px dashed #ff4d6d;
+    line-height: 1.1;
+}
+
+/* Paper pieces filling the jar */
+.paper-bit {
+    width: 15px;
+    height: 15px;
+    background: #fff0f3;
+    position: absolute;
+    bottom: 20px;
+    border-radius: 3px;
+    transform: rotate(15deg);
+}
+.paper-bit:nth-child(2) { left: 20px; transform: rotate(-25deg); background: #ffccd5; }
+.paper-bit:nth-child(3) { right: 20px; transform: rotate(40deg); background: #ffb3c1; }
+
+/* The Popping Note Card */
+.love-note {
+     font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c9184a;
+    background: linear-gradient(135deg, #fff 0%, #ffccd5 100%);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.love-note.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Parchment Paper Effect for the Letter */
+.letter-box {
+    /* Warm parchment base color */
+    background-color: #f4edd2; 
+    /* CSS texture that mimics paper fibers */
+    background-image: 
+        radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%),
+        radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+    
+    border: 1px solid #e2d1a6;
+    padding: 3.5rem;
+    border-radius: 4px; /* Squared edges look more like real paper */
+    backdrop-filter: none;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.5),
+        inset 0 0 40px rgba(0, 0, 0, 0.1); /* Vignette effect */
+    position: relative;
+}
+
+/* Red dark text to match parchment paper */
+.letter-box p {
+    color: #4a3319;
+    text-shadow: none;
+}
+
+/* Parchment Paper Effect for the Pop-up Note */
+.love-note {
+    background-color: #fcf8e8;
+    background-image: 
+        radial-gradient(rgba(0, 0, 0, 0.03) 15%, transparent 16%),
+        radial-gradient(rgba(0, 0, 0, 0.03) 15%, transparent 16%);
+    background-size: 3px 3px;
+    background-position: 0 0, 1.5px 1.5px;
+    
+    color: #5c1a1a;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid #dcd3b2;
+}
+/* Signature Block Styles */
+.signature-block {
+    text-align: right;
+    margin-top: 2rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sign-label {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: skyblue;
+    font-weight: 500;
+}
+
+.husband-signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: pink; /* Dark purple/navy to look like fountain pen ink */
+    margin-top: -0.5rem;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+    transform: rotate(-3deg); /* Slight tilt makes it look realistic! */
+}
+/* Interactive Floating Balloons */
+.balloon-container {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    overflow: visible;
+}
+
+.balloon {
+    width: 60px;
+    height: 75px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    position: relative;
+    cursor: pointer;
+    animation: sway 3s ease-in-out infinite alternate;
+    box-shadow: inset -10px -10px 0 rgba(0,0,0,0.07);
+    transition: transform 0.1s ease;
+}
+
+/* Creating the balloon string */
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 28px;
+    width: 2px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 26px;
+    width: 8px;
+    height: 6px;
+    background-color: inherit;
+    border-radius: 3px;
+}
+
+/* Floating animation */
+@keyframes sway {
+    0% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: translateY(-15px) rotate(3deg); }
+}
+
+/* Popping physics effect */
+.balloon.popped {
+    animation: popEffect 0.2s forwards;
+}
+
+@keyframes popEffect {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+/* Party Popper Confetti Particles */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: confettiFall 0.8s ease-out forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        /* This pushes the particles outward randomly based on JS custom properties */
+        transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0);
+        opacity: 0;
+    }
+}
+/* CSS Drawn Birthday Cake */
+.cake-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.cake-instruction {
+    color: #ffccd5;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cake {
+    width: 150px;
+    height: 100px;
+    background: #f4a261; /* Cake sponge color */
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.cake:hover {
+    transform: scale(1.05);
+}
+
+.cake-layers {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 10px;
+    background: #e76f51; /* Middle cream layer */
+}
+
+.frosting {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 25px;
+    background: #ffccd5; /* Cream dripping frosting */
+    border-radius: 10px 10px 0 0;
+}
+
+/* Wavy frosting effect */
+.frosting::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    height: 15px;
+    background: #ffccd5;
+    border-radius: 50%;
+}
+
+.candle {
+    width: 8px;
+    height: 35px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 5px,
+        #ff4d6d 5px,
+        #ff4d6d 10px
+    );
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px 3px 0 0;
+}
+
+.flame {
+    width: 12px;
+    height: 20px;
+    background: #ffb703;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #ffb703, 0 0 20px #fb8500;
+    animation: flicker 0.6s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-48%) scale(1.1) rotate(2deg); }
+}
+
+/* Off state when the flame is blown out */
+.flame.off {
+    display: none;
+}
+/* Secret Password Lock Screen */
+.lock-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 9, 51, 0.85);
+    backdrop-filter: blur(20px); /* Deep blur effect */
+    z-index: 9999; /* Makes sure it sits on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.lock-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.lock-box h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #ff758c;
+    margin-bottom: 1rem;
+}
+
+.lock-box p {
+    color: #fce4ec;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.password-hint {
+    font-size: 0.9rem !important;
+    color: #c09fdb !important;
+    margin-bottom: 2rem !important;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.input-group input {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    width: 60%;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.input-group button {
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.input-group button:hover {
+    transform: scale(1.05);
+}
+
+.error-msg {
+    color: #ff4d6d !important;
+    font-size: 0.9rem !important;
+    margin-top: 1rem;
+    display: none; /* Hidden by default */
+}
+/* Animated Envelopes */
+.envelopes-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.envelope {
+    width: 160px;
+    height: 110px;
+    background: #ffb3c1;
+    position: relative;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: translateY(-10px) rotate(2deg);
+}
+
+.envelope-flap {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 60px solid #ff4d6d;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.envelope-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a0933;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Modal Popups for the Letters */
+.letter-modal {
+    display: none;
+    letter-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    
+    /* Ultimate centering trick */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #f4edd2;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
+    background-size: 4px 4px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    text-align: center;
+    justify-content: center;
+    
+    /* Animation for popping open in the center */
+    animation: popCenter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popCenter {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: #4a3319;
+    cursor: pointer;
+}
+
+.modal-text-font {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    color: #4a3319;
+    line-height: 1.4;
+    text-align: center;
+}
+/* Letter Photo Styles */
+.letter-photo-frame {
+    background-color: #ffffff;
+    padding: 15px 15px 30px 15px; /* Thicker bottom border to look like a Polaroid */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin: 0 auto 1.5rem;
+    max-width: 200px;
+    transform: rotate(-3deg); /* Cute organic tilt */
+    transition: transform 0.3s ease;
+}
+
+.letter-photo-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.letter-photo {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Crops image neatly into the vertical frame */
+    border: 1px solid #ddd;
+}
+/* Surprise Page Thank You Text */
+.thank-you-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #ff758c;
+    text-align: center;
+    width: 100%;
+    margin-top: 3rem;
+    display: block;
+    text-shadow: 0px 4px 10px rgba(255, 117, 140, 0.3);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #c09fdb;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Next Page Button Spacing */
+.next-page-container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+/* Hide Background Music Player */
+#bg-music {
+    display: none;
+}
+
+
+
+
+/* ===================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET FRIENDLY)
+   =================================================== */
+
+/* For smaller laptops and tablets */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .letter-container h2, .surprise-container h2 {
+        font-size: 2.8rem;
+    }
+
+    .letter-box {
+        padding: 2rem;
+    }
+
+    .letter-box p {
+        font-size: 1.8rem;
+    }
+
+    .envelopes-wrapper {
+        gap: 1rem;
+    }
+
+    .thank-you-text {
+        font-size: 2.8rem;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .content-container {
+        margin-top: 130px; /* Gives space for the stacked top menu */
+        padding: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .cta-btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .letter-container h2, .surprise-container h2 {
+        font-size: 2.2rem;
+    }
+
+    .letter-box p {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .signature-block {
+        margin-top: 1.5rem;
+    }
+
+    .husband-signature {
+        font-size: 2.2rem;
+    }
+
+    .envelope {
+        width: 140px;
+        height: 95px;
+    }
+
+    .envelope-flap {
+        border-left-width: 70px;
+        border-right-width: 70px;
+        border-top-width: 50px;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-text-font {
+        font-size: 1.6rem;
+    }
+
+    .thank-you-text {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+
+    .lock-box {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    .lock-box h2 {
+        font-size: 2.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+}
+

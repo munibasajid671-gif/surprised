@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">FOR MY FAVOURITE PERSON❤️</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-btn active" data-target="home">Home</a></li>
+                <li><a href="#" class="nav-btn" data-target="letter">My Wish</a></li>
+                <li><a href="#" class="nav-btn" data-target="surprise">Surprise</a></li>
+            </ul>
+        </nav>
+    </header>
+        <!-- Hidden Background Music Player -->
+    <audio id="bg-music" loop>
+        <source src="birthday2.mp4" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+        <!-- Secret Password Lock Screen -->
+    <div class="lock-screen" id="lock-screen">
+        <div class="lock-box">
+            <h2>🔒 Top Secret Access</h2>
+            <p>Please enter the secret password to unlock your birthday surprise!</p>
+            <p class="password-hint">Hint: there is some cute nick name</p>
+            
+            <div class="input-group">
+                <input type="password" id="password-input" placeholder="Enter password here...">
+                <button id="unlock-btn">Unlock ✨</button>
+            </div>
+            <p id="error-msg" class="error-msg">Incorrect password, my love. Try again! ❤️</p>
+        </div>
+    </div>
+
+
+    <main class="content-container">
+               
+               <!-- PAGE 1: HOME -->
+        <section id="home" class="page active">
+            <div class="hero-content">
+                <h1>Happy Birthday, My Love!</h1>
+                <p>To the man who makes every day brighter. I made this digital space just for you.</p>
+                <button class="cta-btn" onclick="document.querySelector('[data-target=\'letter\']').click()">Open Your Card</button>
+            </div>
+
+            <!-- New Interactive Balloons Container -->
+            <div class="balloon-container" id="balloon-container">
+                <!-- Balloons will be generated here by JavaScript -->
+            </div>
+        </section>
+
+
+        <!-- PAGE 2: MY WISH -->
+        <section id="letter" class="page">
+            <div class="letter-container">
+                <h2>To My Amazing Husband</h2>
+                
+                <!-- The Love Jar Section -->
+                <p class="jar-instruction">Click the glass jar to pull out a reason why I love you! ✨</p>
+                
+                <div class="jar-wrapper">
+                    <!-- Virtual Glass Jar -->
+                    <div class="love-jar" id="love-jar">
+                        <div class="jar-lid"></div>
+                        <div class="jar-body">
+                            <span class="jar-label">Reasons<br>I Love<br>You</span>
+                            <!-- Folded paper bits inside -->
+                            <div class="paper-bit"></div>
+                            <div class="paper-bit"></div>
+                            <div class="paper-bit"></div>
+                        </div>
+                    </div>
+
+                    <!-- Pop-up Note Area -->
+                    <div class="love-note" id="love-note">
+                        <p id="note-text">Click the jar to read a reason!</p>
+                    </div>
+                </div>
+                
+                                <!-- Original letter below the jar -->
+                <div class="letter-box">
+                    <p>Happy Birthday to the most loving, caring, and incredible partner. You are my whole world, my one and only, and my everything. I am so lucky to share this life with you. May this year bring you all the happiness and success you deserve. I love you endlessly! ❤️</p>
+                                    <!-- Animated "Open When" Envelopes Section -->
+                <p class="jar-instruction">Open these letters made just for you! ✉️</p>
+                
+                <div class="envelopes-wrapper">
+                    <!-- Envelope 1: The Apology -->
+                    <div class="envelope" data-message="apology">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body">
+                            <span class="envelope-label">Open First! 🥺</span>
+                        </div>
+                    </div>
+
+                                    <!-- Original letter below the jar
+                
+                    <div class="signature-block">
+                        <span class="sign-label">Forever Yours,</span>
+                        <h3 class="husband-signature">Your Name</h3>
+                    </div>
+                </div>
+
+                <!-- NEW BUTTON: Go to Surprise Page -->
+                <!-- <div class="next-page-container">
+                    <button class="cta-btn" onclick="document.querySelector('[data-target=\'surprise\']').click()">Go to Your Surprise! 🎁</button>
+                </div> --> -->
+
+                    <!-- Envelope 2: Love Reminder -->
+                    <div class="envelope" data-message="love">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body">
+                            <span class="envelope-label">Open When You Smile 🥰</span>
+                        </div>
+                    </div>
+
+                    <!-- Envelope 3: Future Promise -->
+                    <div class="envelope" data-message="future">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body">
+                            <span class="envelope-label">Open for a Promise 💖</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Modal to display the selected message -->
+                <div class="letter-modal" id="letter-modal">
+                    <div class="modal-content">
+                        <span class="close-modal" id="close-modal">&times;</span>
+                        <p id="modal-text" class="modal-text-font"></p>
+                    </div>
+                </div>
+                        
+                        <p id="modal-text" class="modal-text-font"></p>
+                    </div>
+                </div>
+                 <!-- Original letter below the jar -->
+                
+                    <div class="signature-block">
+                        <span class="sign-label">Forever Yours,</span>
+                        <h3 class="husband-signature">MUNIBA</h3>
+                    </div>
+                </div>
+
+                <!-- NEW BUTTON: Go to Surprise Page -->
+                <div class="next-page-container">
+                    <button class="cta-btn" onclick="document.querySelector('[data-target=\'surprise\']').click()">Go to Your Surprise! 🎁</button>
+                </div>
+                    <!-- New Signature Block -->
+                </div>
+
+            </div>
+        </section>
+
+
+                <!-- PAGE 3: SURPRISE -->
+        <section id="surprise" class="page">
+            <div class="surprise-container">
+                <h2>Your Visual Surprises 🎉</h2>
+                <p>Click the button below to load stunning random HD visuals!</p>
+                
+                <!-- Interactive Birthday Cake Box -->
+                <div class="cake-container">
+                    <p class="cake-instruction">Click the cake to blow the candle and make a wish! 🎂</p>
+                    <div class="cake" id="birthday-cake">
+                        <div class="candle">
+                            <div class="flame" id="cake-flame"></div>
+                        </div>
+                        <div class="frosting"></div>
+                        <div class="cake-layers"></div>
+                    </div>
+                </div>
+
+                <button id="surprise-btn" class="cta-btn">Reveal Surprise</button>
+                
+                <!-- Surprise Image Gallery Grid -->
+                <div class="gallery" id="gallery">
+                    <!-- Images will be generated here by JS -->
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <div class="hearts-container" id="hearts-container"></div>
+             
+    <footer>
+        <p>Made with all my love for you. Forever & Always.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
